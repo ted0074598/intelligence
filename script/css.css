@@ -1,0 +1,26 @@
+.fylogo
+{
+	width: 471px;
+	height: 471px;
+	background: url(pic/fywa.png);
+	margin:0 auto;
+}
+.menu
+{
+	width: 800px;
+	margin:0 auto;
+	margin-top: 10%;
+}
+.menu img
+{
+	width: 200px;
+	height: 200px;
+}
+.menu .list
+{
+	width: 200px;
+	height: 200px;
+	float: left;
+	margin-left: 50px;
+	margin-top: 50px;
+}
