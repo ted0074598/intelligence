@@ -28,14 +28,17 @@ $(document).ready(function(){
                         var t_are=$(t_are).val();
                         var t_pri='#up_d_pri'+t;
                         var t_pri=$(t_pri).val();
+                        var t_class='#up_d_class'+t;
+                        var t_class=$(t_class).val();
                         var t_pws='#up_d_pws'+t;
                         var t_pws=$(t_pws).val();
                         // confirm(t_part);
                         $('#upd_id').attr('value',t_id);
                         $('#upd_name').attr('value',t_part);
                         $('#upd_are').attr('value',t_are);
-                        $('#upd_pri').attr('value',t_pri);
-                         $('#upd_pws').attr('value',t_pws);
+                        $('#upd_pws').attr('value',t_pws);
+                        $("#up_class").val(t_class);
+                        $('#upd_pri').val(t_pri);
                       });
 
                $('.d_del').click(function(){
@@ -234,6 +237,37 @@ $("#case_upd_yan").validate({
           });  
 
 //案件操作==案件操作===案件操作==案件操作==案件操作==案件操作==案件操作==案件操作==案件操作==案件操作==案件操作==案件操作==案件操作
+//情报操作============================================================
+$('#list_show').click(function(){
+                              var $addbotton='#case_list';
+                              $($addbotton).toggle('slow');
+                              var $link=$(this);
+                              if($link.text()=='显示专项')
+                                      {
+                                        $link.text('隐藏专项');
+                                      }else
+                                      {
+                                        $link.text('显示专项');
+                                      }
+                                  });
+  $('#list_add_cance').click(function(){
+                    event.preventDefault();
+                    $('#list_add').fadeOut();
+                    $('#list_add').fadeOut("slow");
+                    $('#list_add').fadeOut(3000);
+                    $('#wall').fadeOut();
+                    $('#wall').fadeOut("slow");
+                    $('#wall').fadeOut(3000);
+                  });
+  $('#add_list_start').click(function(){
+                  $('#list_add').fadeIn();
+                    $('#list_add').fadeIn("slow");
+                    $('#list_add').fadeIn(3000);
+                    $('#wall').fadeIn();
+                    $('#wall').fadeIn("slow");
+                    $('#wall').fadeIn(3000); 
+                     }); 
+//情报操作============================================================
 
  $('#add').click(function(){
                     $('#addtable').fadeIn();

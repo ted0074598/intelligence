@@ -27,17 +27,19 @@ $page=new PHPPage($total,20);
                                             <th>序号</th>
                                             <th>名称</th>
                                             <th>内容</th>
-                                            <th>状态</th>
-                                            <th>备注</th>
+                                            <th width="10%">时间</th>
+                                            <th width="10%">状态</th>
                                             <th width="10%">操作</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                     <?php
+
                                     	$limit =$page->limit();
-                                	$data=$m->FetchAll('newcase','id,c_name,c_content,c_state,c_note','','',$limit);
+                                    	//echo $limit;
+                                	$data=$m->FetchAll('newcase','id,c_name,c_content,c_date,c_state,c_note','','',$limit);
                                  	foreach ($data as $show)
-                                 { //循环取出数据
+                                 	{ //循环取出数据
                                  	if($show['c_state']==0)
                                  	{
                                  		$c_state='关闭';
@@ -50,14 +52,15 @@ $page=new PHPPage($total,20);
                                  	 echo ' <tr class="odd gradeX">
 			    <td>'.$show['id'].'</td>
 			    <td>'.$show['c_name'].'</td>
-			    <td>'.$show['c_content'].'</td>
+			    <td><a href=#>内容查看</a></td>
+			    <td>'.$show['c_date'].'</td>
 			    <td>'.$c_state.'</td>
-			    <td>'.$show['c_note'].'</td>
 			    <td><button type="button" class="c_xiugai btn btn-default" value="'.$show['id'].'">修改</button>&nbsp;
 			            <button type="button" class="c_del btn btn-default" value="'.$show['id'].'"> 删除</button>
 			             <button type="button" style="display:none;"   id="up_c_id'.$show['id'].'" value="'.$show['id'].'"> </button>  
 			             <button type="button" style="display:none;"   id="up_c_name'.$show['id'].'" value="'.$show['c_name'].'"> </button>
 			             <button type="button" style="display:none;"   id="up_c_content'.$show['id'].'" value="'.$show['c_content'].'"> </button>
+			             <button type="button" style="display:none;"   id="up_c_date'.$show['id'].'" value="'.$show['c_date'].'"> </button>
 			            <button type="button" style="display:none;"   id="up_c_state'.$show['id'].'" value="'.$c_state.'"> </button>  
 			            <button type="button" style="display:none;"   id="up_c_note'.$show['id'].'" value="'.$show['c_note'].'"> </button> 
 			    </td>  </tr>';
@@ -66,7 +69,9 @@ $page=new PHPPage($total,20);
                                     ?>
                                     </tbody>
                                 </table>
-
+						<div class="form-group">
+                            				<button id="addcase"  class="btn btn-default">增加案件</button>
+                            				</div>	
 			                                <div class="form-group">
 			                                 <?php
 			                                    echo $page->show();
@@ -162,9 +167,7 @@ $page=new PHPPage($total,20);
                                             </table>
                                          </form>  
       
-  				<div>
-                            			<button id="addcase"  class="btn btn-default">增加案件</button>
-                            		</div>
+  				
                         </div>
                        				
 
@@ -183,6 +186,11 @@ $page=new PHPPage($total,20);
                 <!-- /.col-lg-6 -->
 
             </div>
+
+
+
+
+
             <script>
                                 
                                    $.validator.setDefaults({
@@ -213,18 +221,19 @@ $page=new PHPPage($total,20);
             <!-- /.row -->
 <?php
 	  if(isset($_POST['c_name']))
-	          {
-	            $c_name=$_POST['c_name'];
-	             $c_content=$_POST['c_content'];
-	             $c_state=$_POST['c_state'];
-	             $c_note=$_POST['c_note'];
-	             $query="INSERT INTO `newcase`( `c_name`,`c_content`,`c_state`,`c_note`) VALUES ('".$c_name."','".$c_content."','".$c_state."','".$c_note."')";
-	             echo $query;
-	             if($m->insert( $query,true))
-	             {
-	                echo "<script>alert('添加操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
-	             }
-	          }
+          {
+            $c_name=$_POST['c_name'];
+             $c_content=$_POST['c_content'];
+             $c_state=$_POST['c_state'];
+             $c_note=$_POST['c_note'];
+	  $c_date= date('Y-m-d H:i:s',time());
+             $query="INSERT INTO `newcase`( `c_name`,`c_content`,`c_state`,`c_date`,`c_note`) VALUES ('".$c_name."','".$c_content."','".$c_state."','".$c_date."','".$c_note."')";
+             echo $query;
+             if($m->insert( $query,true))
+             {
+                echo "<script>alert('添加操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
+             }
+          }
 	 if(isset($_GET['c_dele_id']))
        	 {
             $d_id=$_GET['c_dele_id'];

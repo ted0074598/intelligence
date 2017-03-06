@@ -20,12 +20,14 @@ $m=new M();
                                       
 				if($data->num_rows>0)
                       {	     
-                               if($data = $m->GetRow("SELECT `name`,`password` FROM `user` WHERE name='".$_POST['p_no']."'"))
+                               if($data = $m->GetRow("SELECT `name`,`password`,`priority`,`class`  FROM `user` WHERE name='".$_POST['p_no']."'"))
                                {	
                                       //echo "SELECT `name`,`password` FROM `user` WHERE name='admin'";
                                         if ($data['name']==$_POST['p_no']&&$data['password']==$_POST['p_psw']) 
                                         {
                                            $_SESSION['p_no']=$data['name'];
+                                           $_SESSION['priority']=$data['priority'];
+                                           $_SESSION['class']=$data['class'];
                                            $vlue=$_SESSION['p_no'];
                                           echo "<script>alert('登陆成功".$vlue."');location.href='boot.php'</script>";
                         				}

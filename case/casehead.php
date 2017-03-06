@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="description" content="维系系统" />
 <meta name="keywords" content="维修系统" />
- <title>太和县公安局电脑维修系统</title>
+ <title>网侦案件情报系统</title>
  <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <!-- MetisMenu CSS -->
@@ -15,6 +15,8 @@
     <link href="../vendor/morrisjs/morris.css" rel="stylesheet">
 <!-- Custom Fonts -->
     <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- myselfe css -->
+  <link href="../script/css.css" rel="stylesheet">
      <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -30,6 +32,7 @@
 	<!-- Custom Theme JavaScript -->
     <script src="../dist/js/sb-admin-2.js"></script>
     <script src="../script/javascript.js"></script>
+    
     <script src="../script/validation/dist/jquery.validate.min.js"></script>
     <script src="../script/validation/dist/localization/messages_zh.js"></script>
                     <!-- UEditor  -->
@@ -61,7 +64,7 @@ $m = new M();
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default " role="navigation" style="margin-bottom: 0">
            
                      <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
