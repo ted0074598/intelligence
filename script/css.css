@@ -33,7 +33,7 @@ html,body{
 margin:0px; 
 height:100%; 
 } 
-#center{
+.center{
 	padding-left: 50%;
 }
 /*弹出窗口*/
@@ -51,7 +51,7 @@ height:100%;
 .list_add
 {
     /* visibility: hidden; */
-    top: 100px; 
+    top: 50px; 
     left: 50%; 
     margin-left: -600px;
     width: 1000px;

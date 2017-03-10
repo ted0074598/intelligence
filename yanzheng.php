@@ -14,22 +14,21 @@ $m=new M();
 			{
 
 						$where=$_POST['p_no'];
-						$query="select * from user where name='".$where."'";
-                                $data=$link->query($query);
-                                //echo $query;
+						$num_rows=$m->Total('user',"name='".$where."'");
+                                
                                       
-				if($data->num_rows>0)
+				if($num_rows>0)
                       {	     
-                               if($data = $m->GetRow("SELECT `name`,`password`,`priority`,`class`  FROM `user` WHERE name='".$_POST['p_no']."'"))
+                               if($data = $m->GetRow("SELECT `id`,`name`,`password`,`priority`,`class`  FROM `user` WHERE name='".$_POST['p_no']."'"))
                                {	
-                                      //echo "SELECT `name`,`password` FROM `user` WHERE name='admin'";
-                                        if ($data['name']==$_POST['p_no']&&$data['password']==$_POST['p_psw']) 
+                                      if ($data['name']==$_POST['p_no']&&$data['password']==$_POST['p_psw']) 
                                         {
                                            $_SESSION['p_no']=$data['name'];
                                            $_SESSION['priority']=$data['priority'];
                                            $_SESSION['class']=$data['class'];
+                                           $_SESSION['u_id']=$data['id'];
                                            $vlue=$_SESSION['p_no'];
-                                          echo "<script>alert('登陆成功".$vlue."');location.href='boot.php'</script>";
+                                          echo "<script>alert('登陆成功".$vlue.$_SESSION['p_no']."');location.href='boot.php'</script>";
                         				}
                         				else
             	                         {

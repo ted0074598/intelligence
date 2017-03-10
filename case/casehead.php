@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -56,6 +59,7 @@
 include_once '../bridge.php';
 $yanzheng=new yanzheng();
 $yanzheng->checksesson($_SESSION['p_no']);
+$yanzheng->checkpori($_SESSION['class']);
 echo $_SESSION['p_no'];
 $m = new M(); 
 ?>
@@ -86,7 +90,7 @@ $m = new M();
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="login.php"><i class="fa fa-user fa-fw"></i>登陆</a>
                         </li>
-                        <li><a href="yanzheng.php?logout"><i class="fa fa-sign-out fa-fw"></i>退出</a>
+                        <li><a href="../yanzheng.php?logout"><i class="fa fa-sign-out fa-fw"></i>退出</a>
                         </li>
                         
                     </ul>
@@ -100,6 +104,9 @@ $m = new M();
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav in" id="side-menu">
                      
+                        <li>
+                            <a href="gonggao.php"><i class="fa fa-envelope-o   fa-fw"></i>公告栏</a>
+                        </li>
                         <li>
                             <a href="newcase.php"><i class="fa fa-dashboard fa-fw"></i>专项管理</a>
                         </li>

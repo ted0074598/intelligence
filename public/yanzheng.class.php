@@ -1,5 +1,4 @@
 <?php
-session_start();
 	class yanzheng
 	{
 		public function show()
@@ -16,6 +15,15 @@ session_start();
 					exit();
 				}
 	
+		}
+		public function checkpori($type)
+		{
+			if ($type==1)
+				{	
+
+					echo '侦控账户,<b><a href="http://'.$_SERVER ['HTTP_HOST'].'/intelligence/boot.php">点击前往侦控模块</a></b>';
+					exit();
+				}	
 		}
 
 	}

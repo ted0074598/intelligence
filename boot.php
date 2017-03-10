@@ -1,15 +1,18 @@
 <?php
+session_start();
 include_once'head.php';   
 include_once'bridge.php';
 $yanzheng=new yanzheng();
-$yanzheng->checksesson($_SESSION['p_no']);
-echo $_SESSION['p_no'];
+$name=$_SESSION['p_no'];
+echo $name;
+$yanzheng->checksesson($name);
+
 ?>
 
 
  	      <div  class="menu">
  	      	<div class="list">
-			<a href="case/list.php">
+			<a href="case/gonggao.php">
 				<img class="menu_list" src="script/pic/fywa.png"  title="案件情报系统"  border="0" >
 			</a>
 		</div>

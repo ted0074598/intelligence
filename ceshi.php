@@ -2,6 +2,12 @@
 include_once("head.php");
 include_once("bridge.php");
 
+
+$_SESSION['ceshi']="123123123";
+
+echo $_SESSION['ceshi'];
+
+
 $m = new M(); 
 $total = $m->Total('fofo_department');
 $page = new PHPPage($total,10000); 

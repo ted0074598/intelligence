@@ -154,9 +154,9 @@ $("#up_depat").validate({
                       $('#upd_id').attr('value',t_id);
                       $('#upd_name').attr('value',t_name);
                       // $('#upd_content').attr('value',t_content);
-                      UE.getEditor('up_editor').setContent(t_content);
-                      $('#upd_state').attr('value',t_state);
-                      $('#upd_note').attr('value',t_note);
+                      UE.getEditor('upd_content').setContent(t_content);
+                       $('#upd_state').val(t_state);
+                       $('#upd_note').attr('value',t_note);
                 });
                   $('.c_xiugai_cance').click(function(){
                     event.preventDefault();
@@ -258,7 +258,8 @@ $('#list_show').click(function(){
                     $('#wall').fadeOut();
                     $('#wall').fadeOut("slow");
                     $('#wall').fadeOut(3000);
-                  });
+                   
+                   });
   $('#add_list_start').click(function(){
                   $('#list_add').fadeIn();
                     $('#list_add').fadeIn("slow");
@@ -267,7 +268,71 @@ $('#list_show').click(function(){
                     $('#wall').fadeIn("slow");
                     $('#wall').fadeIn(3000); 
                      }); 
+  $('.L_del').click(function(){
+                           if(confirm("确认删除"))
+                       {
+
+                            var t=$(this).val();
+                            //alert(t);
+                            window.location.href='list.php?L_dele='+t;
+                       }
+                       else
+                        {
+                             refresh();
+                       }
+                     });    
+$('.L_upd').click(function(){
+                    if(confirm("确认采用？"))
+                    {
+
+                    var t=$(this).val();
+                    //alert(t);
+                    window.location.href='list.php?L_upd='+t;
+                    }
+                    else
+                    {
+                    refresh();
+                    }
+                    }); 
 //情报操作============================================================
+//公告操作=============================================================
+ $('#add_news').click(function(){
+                  $('#new_add').fadeIn();
+                    $('#new_add').fadeIn("slow");
+                    $('#new_add').fadeIn(3000);
+                    $('#new_wall').fadeIn();
+                    $('#new_wall').fadeIn("slow");
+                    $('#new_wall').fadeIn(3000); 
+                     }); 
+
+  $('#list_new_cance').click(function(){
+                    event.preventDefault();
+                    $('#new_add').fadeOut();
+                    $('#new_add').fadeOut("slow");
+                    $('#new_add').fadeOut(3000);
+                    $('#new_wall').fadeOut();
+                    $('#new_wall').fadeOut("slow");
+                    $('#new_wall').fadeOut(3000);
+                   
+                   });
+
+  $('.n_del').click(function(){
+                           if(confirm("确认删除"))
+                       {
+
+                            var t=$(this).val();
+                            //alert(t);
+                            window.location.href='gonggao.php?n_del='+t;
+                       }
+                       else
+                        {
+                             refresh();
+                       }
+                     }); 
+
+
+
+//公告操作=============================================================
 
  $('#add').click(function(){
                     $('#addtable').fadeIn();

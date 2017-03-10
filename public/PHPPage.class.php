@@ -34,13 +34,19 @@ class PHPPage{
 		$limt=$this->_limit;
 		$total=$this->_total;
 		
-		/*echo $p.'<br/>';
-		echo $start = (($p*$limt)-($limt-1)).'<br/>';
+		// echo $p.'<br/>';
+		// echo $p.'<br/>';
+		// echo $p.'<br/>';
+		/*echo $start = (($p*$limt)-($limt-1)).'<br/>';
 		echo $end = ($page_max-1)*$limt+($total%$limt).'<br/>';*/
 
 		if($p==1)
 		{
 			return  '0,'.$limt;
+		}
+		else if($p==0)
+		{
+			return '0,0';
 		}else if($p!=$page_max)
 		{
 			return (($p*$limt)-($limt)).','.$limt;

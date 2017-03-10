@@ -200,7 +200,7 @@ $page=new PHPPage($total,30);
 	             $in_pri=$_POST['in_pri'];
                         $in_class=$_POST['in_class'];
 	             $query="INSERT INTO `user`( `name`,`password`,`are`,`priority`,`class`) VALUES ('".$in_name."','".$in_pws."','".$in_are."','".$in_pri."','".$in_class."')";
-	             echo $query;
+	             //echo $query;
 	             if($m->insert( $query,true))
 	             {
 	                echo "<script>alert('添加操作成功');location.href='".$_SERVER["HTTP_REFERER"]."';</script>";
